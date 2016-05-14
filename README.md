@@ -58,7 +58,7 @@ Para hacer despliegue de esta librería siga los siguientes pasos:
 
 Archivo `src/PDOController.php`
 
-Atributo | Explicación
+Atributo | Descripción
 --- | --- 
 user | el usuario de la base de datos
 host | la computadora en donde reside el servidor
@@ -68,7 +68,7 @@ db | el nombre de la base de datos
 pdoconfig | arreglo de configuración para el objeto PDO que se usará con el gestor seleccionado
 dsnfragment | fragmento para el DSN
 
-Método | Explicación | Retorno
+Método | Descripción | Retorno
 --- | --- | ---
 __construct($dsnprefix: String, $config: Array) --constructor | recibe el prefijo dsn que es el nombre del SGBD a usar y un arreglo de configuraciones, posteriormente desempaca sus valores en las variables de instancias de la clase | NonReturn
 getDSN | crea y obtiene el DSN actual | String
@@ -81,7 +81,7 @@ exec($query: String) | hace una consulta y retorna un valor numérico, que repre
 
 Archivo `src/PDOServiceProvider.php`
 
-Atributo | Explicación
+Atributo | Descripción
 --- | ---
 _iregister | variable estática contiene todas las instancias de los controladores
 _instances | variable estática que contiene los contadores de las instancias de los controladores
@@ -90,9 +90,9 @@ config | arreglo de propiedades y configuraciones para el controlador
 prefix | prefijo de la instancia por ejemplo: mysql0, mysql1 
 
 
-Método | Explicación | Retorno
+Método | Descripción | Retorno
 --- | --- | ---
-__construct($pdocontroller: String, $config: Array) | Se encarga de inicializar las variables | NonReturn
+__construct($pdocontroller: String, $config: Array) | se encarga de inicializar las variables | NonReturn
 register($w: String) | método estático que construye un PDOServiceProvider y retorna la construcción de un controlador | PDOController 
 factoryControllers | método que factoriza los controladores y los retorna en un arreglo | Array
 getInstance($z: String) | busca por llave y retorna una copia de una instancia definida como mysql0 | PDOController
