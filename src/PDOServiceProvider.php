@@ -91,7 +91,7 @@
 		*/
 		public function build(){
 			try{
-				$this->prefix = $this->pdocontroller.self::$_instances($this->pdocontroller);
+				$this->prefix = $this->pdocontroller.self::$_instances[$this->pdocontroller];
 				$ccontroller; //controlador actual
 
 				if($this->pdocontroller === "mysql")
@@ -104,10 +104,10 @@
 					throw new PDOControllerNotBuildedException();
 
 				//introduce al registro interno [iregister] el controlador principal
-				self::$_iregister[] = array($this->prefix => new $ccontroller);
+				self::$_iregister[] = array($this->prefix => $ccontroller);
 
 				//incrementa el número de instancias
-				self::$_instances($this->pdocontroller) = ++self::$_instances($this->pdocontroller);
+				self::$_instances[$this->pdocontroller] = ++self::$_instances[$this->pdocontroller];
 				
 				//retorna el controlador actual
 				return $ccontroller;
