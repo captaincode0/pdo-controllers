@@ -21,10 +21,10 @@
 
 			echo "Inserting to test_pdo_mysql.users the next values email=$email and password=$pass \n";
 			$result = $mysqlpdocontroller->exec("insert into users(email, password) values('$email','$pass')");
-			/*
-			echo "Getting the json from the next query [select * from users]\n";
+			
+			echo "Getting the print from the next query [select * from users]\n";
 			print_r($mysqlpdocontroller->getMatrix("select * from users"));
-			*/
+			
 			echo "\n";
 		}
 	}
