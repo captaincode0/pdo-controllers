@@ -266,8 +266,8 @@ Archivo `unit/MultipleTest.php`
 Resultados
 ![alt text][testmultiple]
 ##Referencias
-[The PHP manual PDO section](http://php.net/manual/en/book.pdo.php)
-[What is DSN?](https://es.wikipedia.org/wiki/Data_Source_Name)
+- [The PHP manual PDO section](http://php.net/manual/en/book.pdo.php)
+- [What is DSN?](https://es.wikipedia.org/wiki/Data_Source_Name)
 
 [model]: https://raw.githubusercontent.com/captaincode0/pdo-controllers/master/model.png
 [testpostgre]: https://raw.githubusercontent.com/captaincode0/pdo-controllers/master/testpostgre.png
