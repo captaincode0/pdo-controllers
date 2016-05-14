@@ -41,7 +41,7 @@
 		public function getDSN(){
 			if($this->dsnprefix === "mysql" 
 				|| $this->dsnprefix === "pgsql")
-				return "{$this->dsnprefix}:host={$this->host};dbname:{$this->db};port={$this->port};charset=utf8";
+				return "{$this->dsnprefix}:host={$this->host};dbname={$this->db};port={$this->port};charset=utf8";
 			else if($dsnprefix === "sqlsrv")
 				return "{$this->dsnprefix}:Server={$this->host};Database={$this->db};Port={$this->port};charset=utf8";
 		}
