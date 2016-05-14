@@ -5,12 +5,12 @@
 	class PDOController{
 		private $user;
 		private $host;
+		private $port;
 		private $pass;
 		private $db;
 		private $pdoconfig;
 		private $dsnprefix;
-		private $pdoobject;
-		private $port;
+		private $pdoobject;		
 		private $dsnfragment;
 
 		/*
