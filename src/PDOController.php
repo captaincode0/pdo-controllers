@@ -1,4 +1,7 @@
 <?php
+	/*
+		@author: captaincode0
+	*/
 	class PDOController{
 		private $user;
 		private $host;
@@ -8,6 +11,7 @@
 		private $dsnprefix;
 		private $pdoobject;
 		private $port;
+		private $dsnfragment;
 
 		/*
 			@{constructor}
@@ -24,6 +28,7 @@
 			$this->dsnprefix = $dsnprefix;
 			$this->pdoobject = null;
 			$this->port = $config["port"];
+			$this->dsnfragment = isset($config["dsnfragment"])?$config["dsnfragment"]:"";
 
 			
 			/*
@@ -41,9 +46,9 @@
 		public function getDSN(){
 			if($this->dsnprefix === "mysql" 
 				|| $this->dsnprefix === "pgsql")
-				return "{$this->dsnprefix}:host={$this->host};dbname={$this->db};port={$this->port};charset=utf8";
+				return "{$this->dsnprefix}:host={$this->host};dbname={$this->db};port={$this->port};{$this->dsnfragment}";
 			else if($dsnprefix === "sqlsrv")
-				return "{$this->dsnprefix}:Server={$this->host};Database={$this->db};Port={$this->port};charset=utf8";
+				return "{$this->dsnprefix}:Server={$this->host};Database={$this->db};Port={$this->port};{$this->dsnfragment}";
 		}
 
 		public function build(){
