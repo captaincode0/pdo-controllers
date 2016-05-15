@@ -11,7 +11,7 @@ El diagrama de clases es el siguiente
 
 Tal como se puede apreciar en la imagen anterior las clases `MySQLPDOController`, `MSSQLPDOController` y `PostgreSQLController` se extienden de PDOController y se aplica el patrón de inversión de control en cada una de las clases, porque pueden ser ampliadas --añadiendo más métodos y atributos a las mismas.
 
-Estas clases son almacenadas usando el patrón register en PDOServiceProvider que almacena todas las instancias en la variable estática `_iregister` y usa un contador de instancoias `_instances` para construir el profijo de cada una de las instancias, por ejemplo mysql0, mysql1, mysql2.
+Estas clases son almacenadas usando el patrón register en PDOServiceProvider que almacena todas las instancias en la variable estática `_iregister` y usa un contador de instancias `_instances` para construir el profijo de cada una de las instancias, por ejemplo mysql0, mysql1, mysql2.
 
 ##Despliegue
 Para hacer despliegue de esta librería siga los siguientes pasos:
