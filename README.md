@@ -290,7 +290,7 @@ Archivo `src/MyController.php`
 Archivo `src/PDOServiceProvider.php`
 
 ```php
-    //inicion del archivo
+    //inicio del archivo
     include "MyController.php";
 
 	//Lo que se debe incluir end PDOServiceProvider build
@@ -328,6 +328,14 @@ Usando tu controlador
     $app->run();
 ```
 
+> Para configurar opciones más personalizadas, o si el formato de la cadena del DSN falla, la clase `PDOController` se puede extender, esto se usa principalmente cuando los parámetros de esa cadena varian.
+
+```php
+    //extensión del método build
+    if($this->dsnprefix === "mycontroller-prefix"){
+        //ejecutar instrucciones
+    }
+```
 ##Referencias
 - [The PHP manual PDO section](http://php.net/manual/en/book.pdo.php)
 - [What is DSN?](https://es.wikipedia.org/wiki/Data_Source_Name)
