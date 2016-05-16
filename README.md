@@ -336,6 +336,9 @@ Usando tu controlador
         //ejecutar instrucciones
     }
 ```
+
+> Notas sobre la extensión: Si un nuevo controlador quieres agregar, entonces debes cambiar el método mágico __get en PDOServiceProvider y además incluir un nuevo contador de instancias en la variable estática $_instances.
+
 ##Referencias
 - [The PHP manual PDO section](http://php.net/manual/en/book.pdo.php)
 - [What is DSN?](https://es.wikipedia.org/wiki/Data_Source_Name)
