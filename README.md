@@ -265,6 +265,69 @@ Archivo `unit/MultipleTest.php`
 
 Resultados
 ![alt text][testmultiple]
+
+##Escalabilidad --creación de nuevos controladores
+
+> Para crear un nuevo controlador debes saber que prefijo de DSN tiene, por ejemplo para los controladores antes mencionados son mysql, pgsql, sqlsrv.
+
+Los pasos para crear el controlador son los siguientes
+
+1. Hacer una clase llamada `MyController`.
+4. Incluirla en el archivo `PDOServiceProvider.php` con la siguiente instrucción `include "MyController.php"`.
+3. Definir su construcción en el método `build` en la clase `PDOServiceProvider`. 
+
+
+Archivo `src/MyController.php`
+
+```php
+	class MyController extends PDOController {
+		public function __construct($config){
+			parent::__construct("controller", $config);
+		}
+	}
+```
+
+Archivo `src/PDOServiceProvider.php`
+
+```php
+    //inicion del archivo
+    include "MyController.php";
+
+	//Lo que se debe incluir end PDOServiceProvider build
+	if($this->pdocontroller === "mycontroller"){
+        //incluye las instrucciones que quieras precargar
+        $ccontroller  = new MyController($this->config);
+    }
+```
+
+Usando tu controlador
+
+```php
+    include "PDOServiceProvider.php";
+
+    class MyApplication{
+        public function run(){
+            $mycontroller = PDOServiceProvider::register(
+                "mycontroller", 
+                array(
+                    "user" => "myuser",
+                    "pass" => "pass",
+                    "host" => "myhost.com",
+                    "db" => "database"
+                )
+            );
+
+            //checar si el controlador ha sido construido
+            if($mycontroller){
+                //ejecutar las acciones con el controlador
+            }
+        }   
+    }
+
+    $app = new MyApplication();
+    $app->run();
+```
+
 ##Referencias
 - [The PHP manual PDO section](http://php.net/manual/en/book.pdo.php)
 - [What is DSN?](https://es.wikipedia.org/wiki/Data_Source_Name)
