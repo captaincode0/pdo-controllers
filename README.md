@@ -337,7 +337,7 @@ Usando tu controlador
     }
 ```
 
-> Notas sobre la extensión: Si un nuevo controlador quieres agregar, entonces debes cambiar el método mágico __get en PDOServiceProvider y además incluir un nuevo contador de instancias en la variable estática $_instances.
+> Notas sobre la extensión: Si un nuevo controlador quieres agregar, entonces debes cambiar el método mágico __get en PDOServiceProvider y además incluir un nuevo contador de instancias en la variable estática $_instances, esto permitirá la construcción de un controlador correctamente.
 
 ##Referencias
 - [The PHP manual PDO section](http://php.net/manual/en/book.pdo.php)
