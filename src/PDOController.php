@@ -121,8 +121,8 @@
 					foreach($matrix as $array){
 						$tmparray = array();
 
-						for($w=0; $w<count($filter); $w++)
-								$tmparray[$filter[$w]] = $array[$filter[$w]];
+						for($w=0; $w<count($fields); $w++)
+								$tmparray[$fields[$w]] = $array[$fields[$w]];
 
 						$reducedmatrix[] = $tmparray;
 					}
