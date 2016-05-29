@@ -24,11 +24,14 @@
 			$pass = md5("diego");
 
 			echo "Inserting to test_pdo_mysql.users the next values email=$email and password=$pass \n";
-			$mysqlpdocontroller->exec("insert into users(email, password) values('$email','$pass')");
-			
+			$result = $mysqlpdocontroller->exec("insert into users(email, password) values('$email','$pass')");
+			echo $result == null;
+
 			echo "Getting the stdout from the next query [select * from users]\n";
 			print_r($mysqlpdocontroller->getMatrix("select * from users"));
 			
+
+
 			echo "\n";
 		}
 	}
