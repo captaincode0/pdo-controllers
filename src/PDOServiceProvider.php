@@ -19,6 +19,7 @@
 		private $pdocontroller; //nombre del controlador actual
 		private $config; //configuraciones del controlador como usuario, host, base de datos y sus propiedades
 		private $prefix; //prefijo actual del controlador mysql0, mysql1, postgre0
+		public static $_pdocontroller;
 
 		/*
 			El constructor de esta clase recibe el nombre del controlador que se desea construir y
@@ -29,6 +30,7 @@
 		public function __construct($pdocontroller, $config){
 			$this->pdocontroller = $pdocontroller;
 			$this->config = $config;
+			self::$_pdocontroller = $this->pdocontroller;
 		}
 
 		/*
@@ -72,7 +74,7 @@
 			if($controller)
 				return $controller;
 			else
-				echo "La instancia del controlador pdo de ".$this->pdocontroller." no fue construida exitosamente <br>";
+				echo "La instancia del controlador pdo de ".self::$_pdocontroller." no fue construida exitosamente <br>";
 		}
 
 		public function factoryControllers(){
