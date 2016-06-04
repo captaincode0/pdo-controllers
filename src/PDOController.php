@@ -12,6 +12,7 @@
 		private $dsnprefix;
 		private $pdoobject;		
 		private $dsnfragment;
+		private static $_noerrors;
 
 		/*
 			@{constructor}
@@ -29,7 +30,7 @@
 			$this->pdoobject = null;
 			$this->port = $config["port"];
 			$this->dsnfragment = isset($config["dsnfragment"])?$config["dsnfragment"]:"";
-
+			self::$_noerrors = false;
 			
 			/*
 				Añadir estos métodos
@@ -69,7 +70,7 @@
 					);
 			}
 			catch(PDOException $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 				return false;
 			}
 			return true; 
@@ -106,10 +107,10 @@
 				}
 			}
 			catch(Exception $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 			}
 			catch(PDOException $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 			}
 		}
 
@@ -134,10 +135,10 @@
 				
 			}
 			catch(Exception $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 			}
 			catch(PDOException $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 			}
 		}
 
@@ -154,10 +155,10 @@
 				return $pdost;
 			}
 			catch(Exception $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 			}
 			catch(PDOException $ex){
-				echo $ex->getMessage();
+				echo (self::$_noerrors == true)?$ex->getMessage():"";
 			}
 		}
 	}
