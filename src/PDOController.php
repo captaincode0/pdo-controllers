@@ -12,7 +12,7 @@
 		private $dsnprefix;
 		private $pdoobject;		
 		private $dsnfragment;
-		private static $_noerrors;
+		private static $_noerrors = false;
 
 		/*
 			@{constructor}
@@ -30,7 +30,6 @@
 			$this->pdoobject = null;
 			$this->port = $config["port"];
 			$this->dsnfragment = isset($config["dsnfragment"])?$config["dsnfragment"]:"";
-			self::$_noerrors = false;
 			
 			/*
 				Añadir estos métodos
